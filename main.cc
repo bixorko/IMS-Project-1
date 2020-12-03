@@ -44,7 +44,7 @@ double RealOrdersCount;
               */
 
 Store kalkulant("Kalkulant", 2);
-Store veduci("Veduci", 2);
+Store veduci("Veduci", 3);
 Store sitotisk("SitoTisk", 2);
 Facility digitisk("DigiTisk");
 
@@ -215,7 +215,6 @@ int main(int argc, char *argv[])
             Print("|  * Dokoncenych digitisk zakazek: %d                      |\n", createdDigi);
             Print("|  * Dokoncenych zakaziek SPOLU: %d                        |\n", createdDigi + createdSito);
             Print("|  * Generovany ZISK: %lu                                  |\n", (createdDigi + createdSito)*6*750);
-            Print("|  * Ostavajucich zakaziek: %d                             |\n", doVyroby - createdSito - createdDigi);
             Print("|  * Pocet zakaznikov, ktorym nebolo odpovedane na cas: %d |\n", customer_leave_count);
             Print("|  * Pocet zakaznikov, ktory ukoncili spolupracu z dovodu  |\n");
             Print("|    komunikacie / zlemu navrhu: %d                        |\n", leaving + customer_leave_count);
@@ -248,7 +247,6 @@ int main(int argc, char *argv[])
             Print("|  * Dokoncenych digitisk zakazek: %d                      |\n", createdDigi);
             Print("|  * Dokoncenych zakaziek SPOLU: %d                        |\n", createdDigi + createdSito);
             Print("|  * Generovany ZISK: %lu                                  |\n", (createdDigi + createdSito)*6*750);
-            Print("|  * Ostavajucich zakaziek: %d                             |\n", doVyroby - createdSito - createdDigi);
             Print("|  * Pocet zakaznikov, ktorym nebolo odpovedane na cas: %d |\n", customer_leave_count);
             Print("|  * Pocet zakaznikov, ktory ukoncili spolupracu z dovodu  |\n");
             Print("|    komunikacie / zlemu navrhu: %d                        |\n", leaving + customer_leave_count);
@@ -281,7 +279,6 @@ int main(int argc, char *argv[])
             Print("|  * Dokoncenych digitisk zakazek: %d                      |\n", createdDigi);
             Print("|  * Dokoncenych zakaziek SPOLU: %d                        |\n", createdDigi + createdSito);
             Print("|  * Generovany ZISK: %lu                                  |\n", (createdDigi + createdSito)*6*750);
-            Print("|  * Ostavajucich zakaziek: %d                             |\n", doVyroby - createdSito - createdDigi);
             Print("|  * Pocet zakaznikov, ktorym nebolo odpovedane na cas: %d |\n", customer_leave_count);
             Print("|  * Pocet zakaznikov, ktory ukoncili spolupracu z dovodu  |\n");
             Print("|    komunikacie / zlemu navrhu: %d                        |\n", leaving + customer_leave_count);
