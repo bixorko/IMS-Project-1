@@ -7,6 +7,7 @@ tlaciaren: main.cc
 	$(CC) -o $@ main.cc $(FLAGS)
 
 run:
+	@echo -e "Output of each run is printed into *.out file!"
 	./tlaciaren --validityCheck1
 	./tlaciaren --validityCheck2
 	./tlaciaren --validityCheck3
