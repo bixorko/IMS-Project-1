@@ -11,6 +11,7 @@ run:
 	./tlaciaren --validityCheck1
 	./tlaciaren --validityCheck2
 	./tlaciaren --validityCheck3
+	./tlaciaren --simulation1
 
 clean:
 	rm -rf tlaciaren *.out

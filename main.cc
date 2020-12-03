@@ -27,6 +27,8 @@ long customer_leave_count = 0;
 
 double RealOrdersCount;
 
+double OrdersToGeneratorInterval;
+
 /*
  * DEFINES OF CONSTANTS *
                         */
@@ -161,9 +163,13 @@ class Generator : public Event
         if (Time != WORKYEAR)
         {                                                       // zabranenie aby sa zakazka z noveho roku nezapocitalo do stareho (do skumaneho)
             (new Zakazka)->Activate();
-            this->Activate(Time + (WORKDAY*RealOrdersCount));   // premenna RealOrdersCount je vypocitana na zaklade zisku z daneho roku podla
+            this->Activate(Time + OrdersToGeneratorInterval);   // premenna RealOrdersCount je vypocitana na zaklade zisku z daneho roku podla
                                                                 // obchodneho registra a na zaklade nej mozme prepocitat, kolko zakaziek bolo v danom roku
                                                                 // zadanych a tak vieme, kolko ich za dany rok vygenerovat do simulacie...
+                                                                // vysledok OrdersToGeneratorInterval je spocitany uz pred spustenim simulacie (je v nom vypocitany pocet zakaziek)
+                                                                // v danom roku... Dovodom vytvorenia tejto premennej je, aby pri simulovani dalsich okolnosti sme mohli
+                                                                // v novej situacii nastavit pocet simulacii cisto cislom bez nutnosti prepoctu z generovaneho zisku ziskaneho
+                                                                // z obchodneho registra - Detailnejsi popis sa nachadza v technickej sprave
                                                                 // potom prichadza na rad samotna simulacia, ktorej vysledok (Generovany ZISK v outpute v maine)
                                                                 // musi byt obdobny s povodnou sumou, ktora bola zadana. Obcasna nepresnost moze byt zapricinena
                                                                 // kvoli pouzivaniu datoveho typu double, ale tieto nepresnosti su pocitane v par tisicoch, co je pri
@@ -193,8 +199,9 @@ int main(int argc, char *argv[])
         {
             SetOutput("validityCheck1.out");
             
-            double orders = 117000/6/750;                           //popis nasledujucich dvoch vypoctov je v triede Generator                      
-            RealOrdersCount = 251/orders;                           //popis v triede Generator
+            double orders = 117000/6/750;                           // popis nasledujucich dvoch vypoctov je v triede Generator                      
+            RealOrdersCount = 251/orders;                           // popis v triede Generator
+            OrdersToGeneratorInterval = WORKDAY*RealOrdersCount;    // popis v triede
             Init(0, WORKYEAR); 
             (new Generator)->Activate();
             Run();
@@ -225,8 +232,9 @@ int main(int argc, char *argv[])
         {
             SetOutput("validityCheck2.out");
 
-            double orders = 151000/6/750;                           //popis nasledujucich dvoch vypoctov je v triede Generator                      
-            RealOrdersCount = 251/orders;                           //popis v triede Generator
+            double orders = 151000/6/750;                           // popis nasledujucich dvoch vypoctov je v triede Generator                      
+            RealOrdersCount = 251/orders;                           // popis v triede Generator
+            OrdersToGeneratorInterval = WORKDAY*RealOrdersCount;    // popis v triede
             Init(0, WORKYEAR); 
             (new Generator)->Activate();
             Run();
@@ -257,8 +265,9 @@ int main(int argc, char *argv[])
         {
             SetOutput("validityCheck3.out");
 
-            double orders = 1724000/6/750;                           //popis nasledujucich dvoch vypoctov je v triede Generator                      
-            RealOrdersCount = 251/orders;                           //popis v triede Generator
+            double orders = 1724000/6/750;                          // popis nasledujucich dvoch vypoctov je v triede Generator                      
+            RealOrdersCount = 251/orders;                           // popis v triede Generator
+            OrdersToGeneratorInterval = WORKDAY*RealOrdersCount;    // popis v triede
             Init(0, WORKYEAR); 
             (new Generator)->Activate();
             Run();
@@ -289,6 +298,40 @@ int main(int argc, char *argv[])
          * SIMULATION TESTING *
          *   WITH NEW VALUES  *
                               */
+
+        else if (!strcmp(argv[1], "--simulation1"))
+        {
+            SetOutput("simulation1.out");
+
+            double orders = 500;                                    // popis nasledujucich dvoch vypoctov je v triede Generator                      
+            RealOrdersCount = 251/orders;                           // popis v triede Generator
+            OrdersToGeneratorInterval = WORKDAY*RealOrdersCount;    // popis v triede
+
+            Init(0, WORKYEAR); 
+            (new Generator)->Activate();
+            Run();
+
+            kalkulant.Output();
+            veduci.Output();
+            sitotisk.Output();
+            digitisk.Output();
+
+            Print("+----------------------------------------------------------+\n");
+            Print("| MY STATS                                                 |\n");
+            Print("+----------------------------------------------------------+\n");
+            Print("|  * Prijatych objednavok: %d                              |\n", doVyroby);
+            Print("|  * Prerobit ziadalo: %d                                  |\n", prerobit);
+            Print("|    # Chceli prerobit navrh ANO: %d                       |\n", wantChangeG);
+            Print("|    # Chceli prerobit navrh NIE: %d                       |\n", leaving);
+            Print("|  * Dokoncenych sitotisk zakazek: %d                      |\n", createdSito);
+            Print("|  * Dokoncenych digitisk zakazek: %d                      |\n", createdDigi);
+            Print("|  * Dokoncenych zakaziek SPOLU: %d                        |\n", createdDigi + createdSito);
+            Print("|  * Generovany ZISK: %lu                                  |\n", (createdDigi + createdSito)*6*750);
+            Print("|  * Pocet zakaznikov, ktorym nebolo odpovedane na cas: %d |\n", customer_leave_count);
+            Print("|  * Pocet zakaznikov, ktory ukoncili spolupracu z dovodu  |\n");
+            Print("|    komunikacie / zlemu navrhu: %d                        |\n", leaving + customer_leave_count);
+            Print("+----------------------------------------------------------+\n");
+        }
 
         /*
          * BAD INPUT ARGUMENTS *
