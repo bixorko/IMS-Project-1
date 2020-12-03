@@ -4,8 +4,14 @@
 
 #include <iostream>
 #include "simlib.h"
-#include "math.h"
-#include "stdio.h"
+
+/*
+ * C STD LIBRARIES *
+                   */
+
+#include <string.h>
+#include <stdio.h>
+#include <math.h>
 
 /*
  * GLOBAL VARIABLES *
@@ -177,33 +183,117 @@ class Generator : public Event
 
 int main(int argc, char *argv[])
 {
-    double orders = 547000/6/750;                               
-    RealOrdersCount = 251/orders;
-    Init(0, WORKYEAR); 
-    (new Generator)->Activate();
-    Run();
+    if (argc == 2){
 
-    kalkulant.Output();
-    veduci.Output();
-    sitotisk.Output();
-    digitisk.Output();
+        /*
+         * VALIDITY OF SIMULATION *
+         *        CONTROL         *
+                                  */
+        if (!strcmp(argv[1], "--validityCheck1"))
+        {
+            SetOutput("validityCheck1.out");
+            
+            double orders = 117000/6/750;                           //popis nasledujucich dvoch vypoctov je v triede Generator                      
+            RealOrdersCount = 251/orders;                           //popis v triede Generator
+            Init(0, WORKYEAR); 
+            (new Generator)->Activate();
+            Run();
 
-    Print("+----------------------------------------------------------+\n");
-    Print("| MY STATS                                                 |\n");
-    Print("+----------------------------------------------------------+\n");
-    Print("|  * Prijatych objednavok: %d                              |\n", doVyroby);
-    Print("|  * Prerobit ziadalo: %d                                  |\n", prerobit);
-    Print("|    # Chceli prerobit navrh ANO: %d                       |\n", wantChangeG);
-    Print("|    # Chceli prerobit navrh NIE: %d                       |\n", leaving);
-    Print("|  * Dokoncenych sitotisk zakazek: %d                      |\n", createdSito);
-    Print("|  * Dokoncenych digitisk zakazek: %d                      |\n", createdDigi);
-    Print("|  * Dokoncenych zakaziek SPOLU: %d                        |\n", createdDigi + createdSito);
-    Print("|  * Generovany ZISK: %lu                                  |\n", (createdDigi + createdSito)*6*750);
-    Print("|  * Ostavajucich zakaziek: %d                             |\n", doVyroby - createdSito - createdDigi);
-    Print("|  * Pocet zakaznikov, ktorym nebolo odpovedane na cas: %d |\n", customer_leave_count);
-    Print("|  * Pocet zakaznikov, ktory ukoncili spolupracu z dovodu  |\n");
-    Print("|    komunikacie / zlemu navrhu: %d                        |\n", leaving + customer_leave_count);
-    Print("+----------------------------------------------------------+\n");
+            kalkulant.Output();
+            veduci.Output();
+            sitotisk.Output();
+            digitisk.Output();
+
+            Print("+----------------------------------------------------------+\n");
+            Print("| MY STATS                                                 |\n");
+            Print("+----------------------------------------------------------+\n");
+            Print("|  * Prijatych objednavok: %d                              |\n", doVyroby);
+            Print("|  * Prerobit ziadalo: %d                                  |\n", prerobit);
+            Print("|    # Chceli prerobit navrh ANO: %d                       |\n", wantChangeG);
+            Print("|    # Chceli prerobit navrh NIE: %d                       |\n", leaving);
+            Print("|  * Dokoncenych sitotisk zakazek: %d                      |\n", createdSito);
+            Print("|  * Dokoncenych digitisk zakazek: %d                      |\n", createdDigi);
+            Print("|  * Dokoncenych zakaziek SPOLU: %d                        |\n", createdDigi + createdSito);
+            Print("|  * Generovany ZISK: %lu                                  |\n", (createdDigi + createdSito)*6*750);
+            Print("|  * Ostavajucich zakaziek: %d                             |\n", doVyroby - createdSito - createdDigi);
+            Print("|  * Pocet zakaznikov, ktorym nebolo odpovedane na cas: %d |\n", customer_leave_count);
+            Print("|  * Pocet zakaznikov, ktory ukoncili spolupracu z dovodu  |\n");
+            Print("|    komunikacie / zlemu navrhu: %d                        |\n", leaving + customer_leave_count);
+            Print("+----------------------------------------------------------+\n");
+        }
+
+        else if (!strcmp(argv[1], "--validityCheck2"))
+        {
+            SetOutput("validityCheck2.out");
+
+            double orders = 151000/6/750;                           //popis nasledujucich dvoch vypoctov je v triede Generator                      
+            RealOrdersCount = 251/orders;                           //popis v triede Generator
+            Init(0, WORKYEAR); 
+            (new Generator)->Activate();
+            Run();
+
+            kalkulant.Output();
+            veduci.Output();
+            sitotisk.Output();
+            digitisk.Output();
+
+            Print("+----------------------------------------------------------+\n");
+            Print("| MY STATS                                                 |\n");
+            Print("+----------------------------------------------------------+\n");
+            Print("|  * Prijatych objednavok: %d                              |\n", doVyroby);
+            Print("|  * Prerobit ziadalo: %d                                  |\n", prerobit);
+            Print("|    # Chceli prerobit navrh ANO: %d                       |\n", wantChangeG);
+            Print("|    # Chceli prerobit navrh NIE: %d                       |\n", leaving);
+            Print("|  * Dokoncenych sitotisk zakazek: %d                      |\n", createdSito);
+            Print("|  * Dokoncenych digitisk zakazek: %d                      |\n", createdDigi);
+            Print("|  * Dokoncenych zakaziek SPOLU: %d                        |\n", createdDigi + createdSito);
+            Print("|  * Generovany ZISK: %lu                                  |\n", (createdDigi + createdSito)*6*750);
+            Print("|  * Ostavajucich zakaziek: %d                             |\n", doVyroby - createdSito - createdDigi);
+            Print("|  * Pocet zakaznikov, ktorym nebolo odpovedane na cas: %d |\n", customer_leave_count);
+            Print("|  * Pocet zakaznikov, ktory ukoncili spolupracu z dovodu  |\n");
+            Print("|    komunikacie / zlemu navrhu: %d                        |\n", leaving + customer_leave_count);
+            Print("+----------------------------------------------------------+\n");
+        }
+
+        else if (!strcmp(argv[1], "--validityCheck3"))
+        {
+            SetOutput("validityCheck3.out");
+
+            double orders = 1724000/6/750;                           //popis nasledujucich dvoch vypoctov je v triede Generator                      
+            RealOrdersCount = 251/orders;                           //popis v triede Generator
+            Init(0, WORKYEAR); 
+            (new Generator)->Activate();
+            Run();
+
+            kalkulant.Output();
+            veduci.Output();
+            sitotisk.Output();
+            digitisk.Output();
+
+            Print("+----------------------------------------------------------+\n");
+            Print("| MY STATS                                                 |\n");
+            Print("+----------------------------------------------------------+\n");
+            Print("|  * Prijatych objednavok: %d                              |\n", doVyroby);
+            Print("|  * Prerobit ziadalo: %d                                  |\n", prerobit);
+            Print("|    # Chceli prerobit navrh ANO: %d                       |\n", wantChangeG);
+            Print("|    # Chceli prerobit navrh NIE: %d                       |\n", leaving);
+            Print("|  * Dokoncenych sitotisk zakazek: %d                      |\n", createdSito);
+            Print("|  * Dokoncenych digitisk zakazek: %d                      |\n", createdDigi);
+            Print("|  * Dokoncenych zakaziek SPOLU: %d                        |\n", createdDigi + createdSito);
+            Print("|  * Generovany ZISK: %lu                                  |\n", (createdDigi + createdSito)*6*750);
+            Print("|  * Ostavajucich zakaziek: %d                             |\n", doVyroby - createdSito - createdDigi);
+            Print("|  * Pocet zakaznikov, ktorym nebolo odpovedane na cas: %d |\n", customer_leave_count);
+            Print("|  * Pocet zakaznikov, ktory ukoncili spolupracu z dovodu  |\n");
+            Print("|    komunikacie / zlemu navrhu: %d                        |\n", leaving + customer_leave_count);
+            Print("+----------------------------------------------------------+\n");
+        }
+        
+        else
+        {
+            fprintf(stderr, "Bad Input Arguments!\n");
+            return -1;
+        }
+    }
 
     return 0;
 }
