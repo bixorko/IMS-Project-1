@@ -284,6 +284,15 @@ int main(int argc, char *argv[])
             Print("|    komunikacie / zlemu navrhu: %d                        |\n", leaving + customer_leave_count);
             Print("+----------------------------------------------------------+\n");
         }
+
+        /*
+         * SIMULATION TESTING *
+         *   WITH NEW VALUES  *
+                              */
+
+        /*
+         * BAD INPUT ARGUMENTS *
+                               */
         
         else
         {
