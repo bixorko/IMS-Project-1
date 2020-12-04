@@ -16,6 +16,8 @@ run:
 	./tlaciaren --simulation3
 	./tlaciaren --simulation4
 	./tlaciaren --simulation5
+	./tlaciaren --economyCheck1
+	./tlaciaren --economyCheck2
 
 clean:
 	rm -rf tlaciaren *.out

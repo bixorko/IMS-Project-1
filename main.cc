@@ -384,10 +384,10 @@ int main(int argc, char *argv[])
             (new Generator)->Activate();
             Run();
 
-            //kalkulant.Output();
+            kalkulant.Output();
             veduci.Output();
             sitotisk.Output();
-            //digitisk.Output();
+            digitisk.Output();
 
             Print("+----------------------------------------------------------+\n");
             Print("| MY STATS                                                 |\n");
@@ -456,6 +456,78 @@ int main(int argc, char *argv[])
             RealOrdersCount = 251/orders;                           // popis v triede Generator
             OrdersToGeneratorInterval = WORKDAY*RealOrdersCount;    // popis v triede
 
+            Init(0, WORKYEAR); 
+            (new Generator)->Activate();
+            Run();
+
+            kalkulant.Output();
+            veduci.Output();
+            sitotisk.Output();
+            digitisk.Output();
+
+            Print("+----------------------------------------------------------+\n");
+            Print("| MY STATS                                                 |\n");
+            Print("+----------------------------------------------------------+\n");
+            Print("|  * Prijatych objednavok: %d                              |\n", doVyroby);
+            Print("|  * Dokoncenych sitotisk zakazek: %d                      |\n", createdSito);
+            Print("|  * Dokoncenych digitisk zakazek: %d                      |\n", createdDigi);
+            Print("|  * Dokoncenych zakaziek SPOLU: %d                        |\n", createdDigi + createdSito);
+            Print("|  * Generovany ZISK: %lu                                  |\n", (createdDigi + createdSito)*6*750);
+            Print("|  * Prerobit ziadalo: %d                                  |\n", prerobit);
+            Print("|    # Chceli prerobit navrh ANO: %d                       |\n", wantChangeG);
+            Print("|    # Chceli prerobit navrh NIE: %d                       |\n", leaving);
+            Print("|  * Pocet zakaznikov, ktorym nebolo odpovedane na cas: %d |\n", customer_leave_count);
+            Print("|  * Pocet zakaznikov, ktory ukoncili spolupracu z dovodu  |\n");
+            Print("|    komunikacie / zlemu navrhu: %d                        |\n", leaving + customer_leave_count);
+            Print("+----------------------------------------------------------+\n");
+        }
+
+        else if (!strcmp(argv[1], "--economyCheck1"))
+        {
+            SetOutput("economyCheck1.out");
+
+            veduci.SetCapacity(1);
+            kalkulant.SetCapacity(1);
+
+            double orders = 117000/6/750;                           // popis nasledujucich dvoch vypoctov je v triede Generator                      
+            RealOrdersCount = 251/orders;                           // popis v triede Generator
+            OrdersToGeneratorInterval = WORKDAY*RealOrdersCount;    // popis v triede
+            Init(0, WORKYEAR); 
+            (new Generator)->Activate();
+            Run();
+
+            kalkulant.Output();
+            veduci.Output();
+            sitotisk.Output();
+            digitisk.Output();
+
+            Print("+----------------------------------------------------------+\n");
+            Print("| MY STATS                                                 |\n");
+            Print("+----------------------------------------------------------+\n");
+            Print("|  * Prijatych objednavok: %d                              |\n", doVyroby);
+            Print("|  * Dokoncenych sitotisk zakazek: %d                      |\n", createdSito);
+            Print("|  * Dokoncenych digitisk zakazek: %d                      |\n", createdDigi);
+            Print("|  * Dokoncenych zakaziek SPOLU: %d                        |\n", createdDigi + createdSito);
+            Print("|  * Generovany ZISK: %lu                                  |\n", (createdDigi + createdSito)*6*750);
+            Print("|  * Prerobit ziadalo: %d                                  |\n", prerobit);
+            Print("|    # Chceli prerobit navrh ANO: %d                       |\n", wantChangeG);
+            Print("|    # Chceli prerobit navrh NIE: %d                       |\n", leaving);
+            Print("|  * Pocet zakaznikov, ktorym nebolo odpovedane na cas: %d |\n", customer_leave_count);
+            Print("|  * Pocet zakaznikov, ktory ukoncili spolupracu z dovodu  |\n");
+            Print("|    komunikacie / zlemu navrhu: %d                        |\n", leaving + customer_leave_count);
+            Print("+----------------------------------------------------------+\n");
+        }
+
+        else if (!strcmp(argv[1], "--economyCheck2"))
+        {
+            SetOutput("economyCheck2.out");
+
+            veduci.SetCapacity(1);
+            kalkulant.SetCapacity(1);
+
+            double orders = 151000/6/750;                           // popis nasledujucich dvoch vypoctov je v triede Generator                      
+            RealOrdersCount = 251/orders;                           // popis v triede Generator
+            OrdersToGeneratorInterval = WORKDAY*RealOrdersCount;    // popis v triede
             Init(0, WORKYEAR); 
             (new Generator)->Activate();
             Run();
