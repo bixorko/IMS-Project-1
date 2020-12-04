@@ -1,0 +1,101 @@
++----------------------------------------------------------+
+| STORE Kalkulant                                          |
++----------------------------------------------------------+
+|  Capacity = 3  (3 used, 0 free)                          |
+|  Time interval = 0 - 120480                              |
+|  Number of Enter operations = 766                        |
+|  Minimal used capacity = 1                               |
+|  Maximal used capacity = 3                               |
+|  Average used capacity = 2.45293                         |
++----------------------------------------------------------+
+  Input queue 'Kalkulant.Q'
++----------------------------------------------------------+
+| QUEUE Q                                                  |
++----------------------------------------------------------+
+|  Time interval = 0 - 120480                              |
+|  Incoming  125                                           |
+|  Outcoming  124                                          |
+|  Current length = 1                                      |
+|  Maximal length = 3                                      |
+|  Average length = 0.0813976                              |
+|  Minimal time = 0.691205                                 |
+|  Maximal time = 351.62                                   |
+|  Average time = 79.087                                   |
+|  Standard deviation = 74.9134                            |
++----------------------------------------------------------+
+
++----------------------------------------------------------+
+| STORE Veduci                                             |
++----------------------------------------------------------+
+|  Capacity = 3  (3 used, 0 free)                          |
+|  Time interval = 0 - 120480                              |
+|  Number of Enter operations = 569                        |
+|  Minimal used capacity = 1                               |
+|  Maximal used capacity = 3                               |
+|  Average used capacity = 2.98765                         |
++----------------------------------------------------------+
+  Input queue 'Veduci.Q'
++----------------------------------------------------------+
+| QUEUE Q                                                  |
++----------------------------------------------------------+
+|  Time interval = 0 - 120480                              |
+|  Incoming  756                                           |
+|  Outcoming  566                                          |
+|  Current length = 190                                    |
+|  Maximal length = 190                                    |
+|  Average length = 95.7908                                |
+|  Minimal time = 109.424                                  |
+|  Maximal time = 30100                                    |
+|  Average time = 15257.1                                  |
+|  Standard deviation = 9124.47                            |
++----------------------------------------------------------+
+
++----------------------------------------------------------+
+| STORE SitoTisk                                           |
++----------------------------------------------------------+
+|  Capacity = 3  (3 used, 0 free)                          |
+|  Time interval = 0 - 120480                              |
+|  Number of Enter operations = 451                        |
+|  Minimal used capacity = 0                               |
+|  Maximal used capacity = 3                               |
+|  Average used capacity = 2.25649                         |
++----------------------------------------------------------+
+
++----------------------------------------------------------+
+| FACILITY DigiTisk                                        |
++----------------------------------------------------------+
+|  Status = not BUSY                                       |
+|  Time interval = 0 - 120480                              |
+|  Number of requests = 118                                |
+|  Average utilization = 0.573387                          |
++----------------------------------------------------------+
+  Input queue 'DigiTisk.Q1'
++----------------------------------------------------------+
+| QUEUE Q1                                                 |
++----------------------------------------------------------+
+|  Time interval = 0 - 120480                              |
+|  Incoming  44                                            |
+|  Outcoming  44                                           |
+|  Current length = 0                                      |
+|  Maximal length = 2                                      |
+|  Average length = 0.157771                               |
+|  Minimal time = 5.14622                                  |
+|  Maximal time = 1136.64                                  |
+|  Average time = 432.005                                  |
++----------------------------------------------------------+
+
++----------------------------------------------------------+
+| MY STATS                                                 |
++----------------------------------------------------------+
+|  * Prijatych objednavok: 759                              |
+|  * Dokoncenych sitotisk zakazek: 448                      |
+|  * Dokoncenych digitisk zakazek: 118                      |
+|  * Dokoncenych zakaziek SPOLU: 566                        |
+|  * Generovany ZISK: 2547000                                  |
+|  * Prerobit ziadalo: 66                                  |
+|    # Chceli prerobit navrh ANO: 62                       |
+|    # Chceli prerobit navrh NIE: 4                       |
+|  * Pocet zakaznikov, ktorym nebolo odpovedane na cas: 0 |
+|  * Pocet zakaznikov, ktory ukoncili spolupracu z dovodu  |
+|    komunikacie / zlemu navrhu: 4                        |
++----------------------------------------------------------+

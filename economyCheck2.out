@@ -1,0 +1,57 @@
++----------------------------------------------------------+
+| STORE Kalkulant                                          |
++----------------------------------------------------------+
+|  Capacity = 1  (1 used, 0 free)                          |
+|  Time interval = 0 - 120480                              |
+|  Number of Enter operations = 34                         |
+|  Minimal used capacity = 0                               |
+|  Maximal used capacity = 1                               |
+|  Average used capacity = 0.103547                        |
++----------------------------------------------------------+
+
++----------------------------------------------------------+
+| STORE Veduci                                             |
++----------------------------------------------------------+
+|  Capacity = 1  (0 used, 1 free)                          |
+|  Time interval = 0 - 120480                              |
+|  Number of Enter operations = 33                         |
+|  Minimal used capacity = 0                               |
+|  Maximal used capacity = 1                               |
+|  Average used capacity = 0.160875                        |
++----------------------------------------------------------+
+
++----------------------------------------------------------+
+| STORE SitoTisk                                           |
++----------------------------------------------------------+
+|  Capacity = 2  (0 used, 2 free)                          |
+|  Time interval = 0 - 120480                              |
+|  Number of Enter operations = 28                         |
+|  Minimal used capacity = 0                               |
+|  Maximal used capacity = 1                               |
+|  Average used capacity = 0.139058                        |
++----------------------------------------------------------+
+
++----------------------------------------------------------+
+| FACILITY DigiTisk                                        |
++----------------------------------------------------------+
+|  Status = not BUSY                                       |
+|  Time interval = 0 - 120480                              |
+|  Number of requests = 5                                  |
+|  Average utilization = 0.0218175                         |
++----------------------------------------------------------+
+
++----------------------------------------------------------+
+| MY STATS                                                 |
++----------------------------------------------------------+
+|  * Prijatych objednavok: 33                              |
+|  * Dokoncenych sitotisk zakazek: 28                      |
+|  * Dokoncenych digitisk zakazek: 5                      |
+|  * Dokoncenych zakaziek SPOLU: 33                        |
+|  * Generovany ZISK: 148500                                  |
+|  * Prerobit ziadalo: 2                                  |
+|    # Chceli prerobit navrh ANO: 2                       |
+|    # Chceli prerobit navrh NIE: 0                       |
+|  * Pocet zakaznikov, ktorym nebolo odpovedane na cas: 0 |
+|  * Pocet zakaznikov, ktory ukoncili spolupracu z dovodu  |
+|    komunikacie / zlemu navrhu: 0                        |
++----------------------------------------------------------+
